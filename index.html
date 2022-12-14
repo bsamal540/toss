@@ -1,0 +1,49 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>TOSS</title>
+  </head>
+  <body>
+    <div>
+    <fieldset class="display_size">
+     
+    <h1>play <br>toss game with <br>system</h1>
+    <button>head</button>      <button>tail</button><br><br>
+    <fieldset>
+      <legend>Result</legend>
+    <div class="output"></div>
+  </fieldset>
+  </fieldset>
+</div>
+  </body>
+<script>
+    let btns = document.querySelectorAll("button");
+    let output = document.querySelector(".output");
+
+      let computerscore =0;
+      let playerscore = 0;
+    for(let t of btns){
+        //let choice = ["head" , "tail"]
+        //console.log(t.innetHTML)
+        //console.log(t.target)
+        t.addEventListener("click",() => {toss(t.innerHTML)})//here we can take a callback bcz if directly write function then we cant pass value on that like () this format.
+        //let userchoice = "";
+        function toss(userchoice){
+            //console.log(userchoice);
+          let choice = ["head" , "tail"];
+          let random = parseInt(Math.random()*choice.length)
+         tossvalue = choice[random];
+         console.log(tossvalue);
+          tossvalue == userchoice ? playerscore++ : computerscore++;
+          //console.log(playerscore,computerscore)
+          output.innerHTML = `Your score:${playerscore} <br> System Score ${computerscore}`;
+
+        }
+        
+    }
+</script>
+  </html>
